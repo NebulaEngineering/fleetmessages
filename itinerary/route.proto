@@ -1,0 +1,26 @@
+syntax = "proto3";
+package itimsg;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/dumacp/go-schservices/pkg/itimsg";
+
+message route {
+	string id = 1;
+	string name = 2;
+	string organizationId = 3;
+	string modeId = 4;
+	string authorityCode = 5;
+	string divipolCode = 6;
+	zone zone = 7;
+}
+
+enum typeZone {
+	Polygon = 0;
+}
+
+message zone {
+	string type = 1;
+	google.protobuf.ListValue coordinates = 2;
+}
+

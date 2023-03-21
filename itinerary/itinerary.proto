@@ -1,0 +1,40 @@
+syntax = "proto3";
+package itimsg;
+
+option go_package = "github.com/dumacp/go-schservices/pkg/itimsg";
+
+message itinerary {
+	string id = 1;
+	string name = 2;
+	string organizationId = 3;
+	string routeId = 4;
+	string minCompletenessPercentage = 5;
+	string distancetoItineraryThreshold = 6;
+	string mustVerifycheckpointDirectionUponstart = 7;
+	repeated path path = 8;
+	abandonControl abandonControl = 9;	
+}
+
+enum typePoint {
+	STOP = 0;
+	CONTROL = 1;
+	POINT = 2;
+}
+
+message path {
+	typePoint type = 1;
+	string name = 2;
+	repeated float coords = 3;
+	int32 radius = 4;
+	int32 eta = 5;
+	int32 maxSpeed = 6;
+	string checkPointId = 7;
+}
+
+message abandonControl {
+	int32 fromTraveledPercentage = 1;
+	int32 toTraveledPercentage = 2;
+	string fromCheckpointId = 3;
+	string toCheckPointId = 4;
+}
+
