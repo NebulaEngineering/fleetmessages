@@ -1,7 +1,7 @@
 syntax = "proto3";
-package itimsg;
+package itinerarymsg;
 
-option go_package = "github.com/NebulaEngineering/fleetmessages/itinerary";
+option go_package = "github.com/NebulaEngineering/itinerarymsg";
 
 message itinerary {
 	string id = 1;
